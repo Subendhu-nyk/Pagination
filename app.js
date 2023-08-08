@@ -8,6 +8,7 @@ const User=require('./models/user')
 const Order = require('./models/orders');
 const bodyParser=require('body-parser')
 const router=require('./routes/expense')
+
 const userRoutes = require('./routes/user')
 const purchaseRoutes = require('./routes/purchase')
 const premiumFeatureRoutes = require('./routes/premiumFeatures')
@@ -28,6 +29,7 @@ app.use('/purchase', purchaseRoutes)
 app.use('/premium', premiumFeatureRoutes)
 app.use('/password', resetPasswordRoutes);
 app.use('/', router);
+
 
 User.hasMany(Expense);
 Expense.belongsTo(User);

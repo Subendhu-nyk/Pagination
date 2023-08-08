@@ -104,11 +104,23 @@
                     </thead>
                     <tbody id="expense-table-body">
                      
-                  </tbody>
+                  </tbody>                  
                 </table>               
             </div>  
             <div>
-                <div id="showlist"></div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div id="showlist"></div>
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex justify-content-end my-3">
+                            <a href="pagination.html"> <button class="btn btn-warning">Show Report</button></a>
+                         </div>
+                    </div>
+                </div>
+                
+              
                 <h2>Expenses</h2>
                 <div id="leaderboard"></div>
             </div> 
@@ -270,7 +282,9 @@ function showLeaderboard(){
     const inputElement=document.createElement('input')
     inputElement.type="button"
     inputElement.value="Show Leaderboard"
-    inputElement.style.marginTop="30px"
+    inputElement.style.marginTop="20px"
+    inputElement.style.marginBottom="20px"
+    inputElement.classList.add('btn', 'btn-warning')
     inputElement.onclick=async()=>{
         const token=localStorage.getItem('token')
         const userLeaderBoardArray=await axios.get('http://localhost:2000/premium/showLeaderBoard', { headers: { "Authorization": token } })

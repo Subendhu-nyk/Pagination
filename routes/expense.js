@@ -22,9 +22,8 @@ router.post('/user/add-expense',userauthentication.authenticate,postExpenseContr
 router.get('/user/get-expense',userauthentication.authenticate,postExpenseController.getExpense)
 
 router.delete('/user/delete-expense/:id',userauthentication.authenticate,postExpenseController.deleteExpense)
-
 router.get('/user/detailed-report', userauthentication.authenticate, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'pagination.html'));
   });
-
+router.get('/download', userauthentication.authenticate, postExpenseController.downloadExpenses)
 module.exports=router;
